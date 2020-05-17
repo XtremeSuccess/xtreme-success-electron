@@ -8,11 +8,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-
-
+import { StudyComponent } from './study/study.component';
+import { ProfileComponent } from './profile/profile.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, StudyComponent, ProfileComponent],
   imports: [
     CommonModule,
     MatGridListModule,
@@ -21,6 +24,9 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     MatIconModule,
     MatButtonModule,
     LayoutModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
     DashboardRoutingModule
   ]
 })

@@ -7,6 +7,7 @@ const createWindow = () => {
         width: 800,
         height: 600,
         backgroundColor: '#FFFFFF',
+        title: 'Xtreme Success',
         icon: `file://${__dirname}/dist/xtreme-success-electron/assets/logo.png`
     });
 

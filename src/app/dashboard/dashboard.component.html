@@ -1,24 +1,24 @@
-<div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+<mat-sidenav-container (backdropClick)="close('backdrop')">
+  <mat-sidenav class="container-sidenav" #sidenav (keydown.escape)="close('escape')" disableClose>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="close('toggle button')" color="accent">
+        <mat-icon>menu</mat-icon>
+      </button>
+      Menu
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard/home/study">Study</a>
+      <a mat-list-item routerLink="/dashboard/home/profile">Profile</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <p>
+      <button mat-icon-button (click)="sidenav.open()" color="primary">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </p>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
