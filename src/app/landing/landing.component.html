@@ -3,16 +3,16 @@
         <mat-card-content>
             <h1><span class="xtreme">Xtreme</span> Success</h1>
             <p>Login to View Dashboard</p>
-            <form class="login-form">
-                <mat-form-field class="example-full-width">
+            <form class="login-form" [formGroup]="loginForm">
+                <mat-form-field>
                     <mat-label>Email</mat-label>
-                    <input matInput type="email" placeholder="Ex. johndoe@gmail.com">
+                    <input matInput type="email" placeholder="Ex. johndoe@gmail.com" formControlName="email" required>
                 </mat-form-field>
-                <mat-form-field class="example-full-width">
+                <mat-form-field>
                     <mat-label>Password</mat-label>
-                    <input matInput type="password" placeholder="******">
+                    <input matInput type="password" placeholder="******" formControlName="password" required>
                 </mat-form-field>
-                <a mat-raised-button color="primary" (click)="login()">Login</a>
+                <button mat-raised-button color="primary" [disabled]="!loginForm.valid" (click)="login()">Login</button>
             </form>
             <br>
             <small>*Please go to our app if you don't have an account.</small>

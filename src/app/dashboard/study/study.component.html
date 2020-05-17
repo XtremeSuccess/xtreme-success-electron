@@ -1,21 +1,45 @@
 <div class="grid-container">
-    <mat-grid-list cols="2" rowHeight="350px">
-        <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+    <mat-grid-list cols="4" rowHeight="350px">
+        <mat-grid-tile colspan="3" rowspan="2">
             <mat-card class="dashboard-card">
                 <mat-card-header>
                     <mat-card-title>
-                        {{card.title}}
-                        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                            <mat-icon>more_vert</mat-icon>
-                        </button>
-                        <mat-menu #menu="matMenu" xPosition="before">
-                            <button mat-menu-item>Expand</button>
-                            <button mat-menu-item>Remove</button>
-                        </mat-menu>
+                        {{ selectedChapter ||'Chapter Title'}}
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content markdown-content">
+                    <markdown katex [data]="chapter?.chapter_details.text">
+                    </markdown>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        Subjects
                     </mat-card-title>
                 </mat-card-header>
                 <mat-card-content class="dashboard-card-content">
-                    <div>Card Content Here</div>
+                    <mat-action-list>
+                        <button mat-list-item *ngFor="let subject of course?.subjects"
+                            (click)="getChapters(subject.id, subject.name)">{{subject.name}}</button>
+                    </mat-action-list>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        {{selectedSubject || 'Chapters'}}
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                    <mat-action-list *ngIf="chapters">
+                        <button mat-list-item *ngFor="let c of chapters"
+                            (click)="showChapterDetails(c.name, c.id)">{{c.name}}</button>
+                    </mat-action-list>
                 </mat-card-content>
             </mat-card>
         </mat-grid-tile>

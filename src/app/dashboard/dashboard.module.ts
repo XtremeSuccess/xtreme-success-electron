@@ -13,6 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [DashboardComponent, StudyComponent, ProfileComponent],
@@ -27,7 +28,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    MarkdownModule.forChild()
   ]
 })
 export class DashboardModule { }
