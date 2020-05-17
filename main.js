@@ -4,8 +4,8 @@ let win;
 
 const createWindow = () => {
     win = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1024,
+        height: 768,
         backgroundColor: '#FFFFFF',
         title: 'Xtreme Success',
         icon: `file://${__dirname}/dist/xtreme-success-electron/assets/logo.png`
