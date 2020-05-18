@@ -34,8 +34,8 @@ import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
         tokenGetter: () => {
           return localStorage.getItem('access_token')
         },
-        whitelistedDomains: ["localhost:1337"],
-        blacklistedRoutes: [`localhost:1337/auth`]
+        whitelistedDomains: ["192.168.2.4:1337"],
+        blacklistedRoutes: ["192.168.2.4:1337/auth"]
       }
     }),
     MarkdownModule.forRoot()

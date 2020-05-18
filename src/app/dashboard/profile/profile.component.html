@@ -1,11 +1,70 @@
 <div class="profile-container">
-    <mat-card class="profile-card">
-        <mat-card-content>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias magnam commodi quasi necessitatibus
-                exercitationem debitis, minus maxime voluptates iusto sapiente earum laudantium temporibus aliquid,
-                sequi magni fuga laboriosam at nam?
-            </p>
-        </mat-card-content>
-    </mat-card>
+    <mat-grid-list cols=2 rowHeight="700px">
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-card class="profile-card">
+                <mat-card-content>
+                    <mat-card-header>
+                        <mat-card-title>
+                            Personal Details
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-list>
+                        <mat-list-item>
+                            <h4 matLine>Name</h4>
+                            <p matLine>{{user?.user_detail.firstname}} {{user?.user_detail.lastname}}</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <h4 matLine>Parent's Name</h4>
+                            <p matLine>{{user?.user_detail.parent_name}}</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <h4 matLine>Mobile Number</h4>
+                            <p matLine>{{user?.user_detail.mobile_number}}</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <h4 matLine>Parent's Mobile Number</h4>
+                            <p matLine>{{user?.user_detail.parent_mobile_number}}</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <h4 matLine>School Name</h4>
+                            <p matLine>{{user?.user_detail.school_name}}</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <h4 matLine>Address</h4>
+                            <p matLine>{{user?.user_detail.address}}</p>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-card class="profile-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        Subscription Details
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <mat-list>
+                        <mat-list-item>
+                            <h4 matLine>Course Name</h4>
+                            <p matLine>{{subscription?.course.name}}</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <h4 matLine>Start Date</h4>
+                            <p matLine>{{subscription?.start_date}}</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <h4 matLine>End Date</h4>
+                            <p matLine>{{subscription?.end_date}}</p>
+                        </mat-list-item>
+                        <mat-list-item>
+                            <h4 matLine>End Date</h4>
+                            <p matLine>{{subscription?.end_date}}</p>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>
