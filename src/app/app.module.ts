@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { JwtModule } from '@auth0/angular-jwt';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
+import { NgxElectronModule } from 'ngx-electron';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxElectronModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

@@ -16,6 +16,9 @@ export class ProfileComponent implements OnInit {
   user: User;
   subscription: Subscription;
 
+  today: Date = new Date();
+  endDate: Date;
+
   constructor(
     private readonly authService: AuthService,
     private readonly jwtHelper: JwtHelperService,
@@ -33,11 +36,16 @@ export class ProfileComponent implements OnInit {
           this.subsService.getSubscription(data.user_detail.subscription).subscribe(
             (sub: Subscription) => {
               this.subscription = sub;
+              this.endDate = new Date(this.subscription.end_date);
             }, error => console.log(error)
           );
         }
       }, error => console.log(error)
     );
+  }
+
+  showDaysLeft() {
+    return Math.ceil((this.endDate.getTime() - this.today.getTime()) / (1000 * 60 * 60 * 24))
   }
 
 }
